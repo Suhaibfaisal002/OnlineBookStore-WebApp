@@ -1,0 +1,99 @@
+﻿@model ContactMessageViewModel
+
+<div class="message-details">
+    <div class="message-detail-item">
+        <div class="message-detail-label">From</div>
+        <div class="message-detail-value">
+            <i class="bi bi-person me-2"></i>@Model.Name
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="message-detail-item">
+                <div class="message-detail-label">Email</div>
+                <div class="message-detail-value">
+                    <i class="bi bi-envelope me-2"></i>
+                    <a href="mailto:@Model.Email">@Model.Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="message-detail-item">
+                <div class="message-detail-label">Phone</div>
+                <div class="message-detail-value">
+                    @if (!string.IsNullOrEmpty(Model.Phone) && Model.Phone != "Not provided")
+                    {
+                        <i class="bi bi-telephone me-2"></i>
+                        <a href="tel:@Model.Phone">@Model.Phone</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Not provided</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="message-detail-item">
+        <div class="message-detail-label">Subject</div>
+        <div class="message-detail-value bg-white">
+            <i class="bi bi-tag me-2"></i>@Model.Subject
+        </div>
+    </div>
+
+    <div class="message-detail-item">
+        <div class="message-detail-label">Message</div>
+        <div class="message-detail-value bg-white" style="white-space: pre-line; min-height: 150px;">
+            @Model.Message
+        </div>
+    </div>
+
+    <div class="message-detail-item">
+        <div class="message-detail-label">Received On</div>
+        <div class="message-detail-value">
+            <i class="bi bi-calendar me-2"></i>@Model.CreatedAt.ToString("dd MMMM yyyy, hh:mm tt")
+        </div>
+    </div>
+</div>
+
+<style>
+    .message-details {
+        padding: 0.5rem;
+    }
+    
+    .message-detail-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .message-detail-label {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+        font-weight: 500;
+    }
+    
+    .message-detail-value {
+        font-size: 1rem;
+        color: #212529;
+        background: #f8f9fa;
+        padding: 0.75rem;
+        border-radius: 0.375rem;
+        border: 1px solid #e9ecef;
+    }
+    
+        .message-detail-value a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+    
+            .message-detail-value a:hover {
+                text-decoration: underline;
+            }
+    
+        .message-detail-value.bg-white {
+            background: white;
+            border: 1px solid #dee2e6;
+        }
+</style>

@@ -1,0 +1,328 @@
+@model AdminProductsPageViewModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Products";
+    var categories = Model.CreateModel.Categories.ToList();
+    var subCategories = Model.CreateModel.SubCategories.ToList();
+    var manufacturers = Model.CreateModel.Manufacturers.ToList();
+}
+
+<div class="admin-panel-card">
+    <div class="admin-card-header">
+        <div>
+            <h3 class="mb-1">Products</h3>
+            <p>Manage the catalog with modal-based create and update flows.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <form class="d-flex gap-2" method="get">
+                <input class="form-control" type="search" name="query" value="@ViewBag.Query" placeholder="Search products" />
+                <select class="form-select" name="categoryId" asp-items="ViewBag.CategoryFilter" style="min-width: 180px;">
+                    <option value="">All Categories</option>
+                </select>
+                <button class="btn btn-outline-dark" type="submit">Apply</button>
+            </form>
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#createProductModal">Add Product</button>
+        </div>
+    </div>
+
+    <div class="table-shell">
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.ProductCode</td>
+                        <td>@product.ProductName</td>
+                        <td>@product.Category?.CategoryName</td>
+                        <td>@product.Price.ToString("C")</td>
+                        <td>@product.StockQuantity</td>
+                        <td><span class="status-badge @(product.IsActive ? "completed" : "cancelled")">@(product.IsActive ? "Active" : "Inactive")</span></td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editProductModal-@product.ProductId">Edit</button>
+                            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteProductModal-@product.ProductId">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="createProductModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddProduct" method="post" enctype="multipart/form-data" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <div class="col-12">
+                        <label class="form-label">Product Code</label>
+                        <input class="form-control" value="Auto-generated on save" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CreateModel.ProductName" class="form-label"></label>
+                        <input asp-for="CreateModel.ProductName" name="ProductName" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="CreateModel.CategoryId" class="form-label"></label>
+                        <select asp-for="CreateModel.CategoryId" name="CategoryId" class="form-select category-select" data-target="#createSubCategory">
+                            <option value="">Select Category</option>
+                            @foreach (var category in categories)
+                            {
+                                <option value="@category.Value">@category.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3" id="createSubCategoryWrapper" style="display:none;">
+                        <label class="form-label">Sub Category</label>
+                        <select name="SubCategoryId" class="form-select subcategory-select" id="createSubCategory"></select>
+                    </div>
+
+                    <!-- 🔥 hidden field (IMPORTANT) -->
+                    <input type="hidden" name="SubCategoryId" class="subcategory-hidden" />
+                    <div class="col-md-4">
+                        <label asp-for="CreateModel.ManufacturerId" class="form-label"></label>
+                        <select asp-for="CreateModel.ManufacturerId" name="ManufacturerId" class="form-select">
+                            <option value="">Select Manufacturer</option>
+                            @foreach (var manufacturer in manufacturers)
+                            {
+                                <option value="@manufacturer.Value">@manufacturer.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="CreateModel.Price" class="form-label"></label>
+                        <input asp-for="CreateModel.Price" name="Price" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="CreateModel.StockQuantity" class="form-label"></label>
+                        <input asp-for="CreateModel.StockQuantity" name="StockQuantity" class="form-control" />
+                    </div>
+                    <div id="createBookFields" class="row" style="display:none;">
+                        <div class="col-md-4">
+                            <label class="form-label">Author Name</label>
+                            <input name="AuthorName" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Publisher Name</label>
+                            <input name="PublisherName" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Release Date</label>
+                            <input type="date" name="ReleaseDate" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CreateModel.Version" class="form-label"></label>
+                        <input asp-for="CreateModel.Version" name="Version" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CreateModel.ProductType" class="form-label"></label>
+                        <input asp-for="CreateModel.ProductType" name="ProductType" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CreateModel.ImageFile" class="form-label"></label>
+                        <input asp-for="CreateModel.ImageFile" name="ImageFile" class="form-control" />
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="form-check mt-4">
+                            <input asp-for="CreateModel.IsActive" name="IsActive" class="form-check-input" />
+                            <label asp-for="CreateModel.IsActive" class="form-check-label"></label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="CreateModel.Description" class="form-label"></label>
+                        <textarea asp-for="CreateModel.Description" name="Description" class="form-control" rows="4"></textarea>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button class="btn btn-dark" type="submit">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var product in Model.Products)
+{
+    <div class="modal fade" id="editProductModal-@product.ProductId" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="EditProduct" method="post" enctype="multipart/form-data" class="row g-3">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="ProductId" value="@product.ProductId" />
+                        <div class="col-12">
+                            <label class="form-label">Product Code</label>
+                            <input class="form-control" value="@product.ProductCode" readonly />
+                        </div>
+                        <div class="col-md-6"><label class="form-label">Product Name</label><input class="form-control" name="ProductName" value="@product.ProductName" /></div>
+                        <div class="col-md-3">
+                            <label class="form-label">Category</label>
+                            <select class="form-select category-select" name="CategoryId" data-target="#editSubCategory-@product.ProductId" data-selected="@product.SubCategoryId">
+                                @foreach (var category in categories)
+                                {
+                                    <option value="@category.Value" selected="@(product.CategoryId.ToString() == category.Value)">@category.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="editSubCategoryWrapper-@product.ProductId" style="display:none;">
+                            <label class="form-label">Sub Category</label>
+
+                            <select class="form-select subcategory-select"
+                                    id="editSubCategory-@product.ProductId">
+                            </select>
+
+                            <input type="hidden" name="SubCategoryId"
+                                   value="@product.SubCategoryId"
+                                   class="subcategory-hidden" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Manufacturer</label>
+                            <select class="form-select" name="ManufacturerId">
+                                @foreach (var manufacturer in manufacturers)
+                                {
+                                    <option value="@manufacturer.Value" selected="@(product.ManufacturerId.ToString() == manufacturer.Value)">@manufacturer.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-4"><label class="form-label">Price</label><input class="form-control" name="Price" value="@product.Price" /></div>
+                        <div class="col-md-4"><label class="form-label">Stock Quantity</label><input class="form-control" name="StockQuantity" value="@product.StockQuantity" /></div>
+                        <div id="editBookFields-@product.ProductId" class="row" style="display:none;">
+                            <div class="col-md-4">
+                                <label class="form-label">Author Name</label>
+                                <input class="form-control" name="AuthorName" value="@product.AuthorName" />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Publisher Name</label>
+                                <input class="form-control" name="PublisherName" value="@product.PublisherName" />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Release Date</label>
+                                <input type="date" class="form-control" name="ReleaseDate"
+                                       value="@product.ReleaseDate?.ToString("yyyy-MM-dd")" />
+                            </div>
+                        </div>
+                        <div class="col-md-6"><label class="form-label">Version</label><input class="form-control" name="Version" value="@product.Version" /></div>
+                        <div class="col-md-6"><label class="form-label">Product Type</label><input class="form-control" name="ProductType" value="@product.ProductType" /></div>
+                        <div class="col-md-6"><label class="form-label">Image</label><input class="form-control" type="file" name="ImageFile" /></div>
+                        <div class="col-md-6 d-flex align-items-center"><div class="form-check mt-4"><input class="form-check-input" type="checkbox" name="IsActive" value="true" checked="@product.IsActive" /><label class="form-check-label">Active</label></div></div>
+                        <div class="col-12"><label class="form-label">Description</label><textarea class="form-control" name="Description" rows="4">@product.Description</textarea></div>
+                        <div class="col-12 text-end"><button class="btn btn-dark" type="submit">Save Changes</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteProductModal-@product.ProductId" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Delete Product</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <p>Delete <strong>@product.ProductName</strong> permanently?</p>
+                    <form asp-action="DeleteProduct" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@product.ProductId" />
+                        <button class="btn btn-danger" type="submit">Confirm Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+   
+    <script>
+        (() => {
+
+            async function handleCategoryChange(select) {
+
+                const categoryId = select.value;
+                const categoryText = select.options[select.selectedIndex]?.text.toLowerCase();
+
+                const target = document.querySelector(select.dataset.target);
+                const wrapper = target?.closest('[id*="SubCategoryWrapper"]');
+
+                const isBook = categoryText.includes("book");
+
+                // 🔥 BOOK FIELDS
+                const modal = select.closest(".modal");
+                const bookFields = modal.querySelector('[id*="BookFields"]');
+
+                if (bookFields) {
+                    bookFields.style.display = isBook ? "flex" : "none";
+                }
+
+                // 🔥 LOAD SUBCATEGORIES
+                if (!categoryId) return;
+
+                const res = await fetch(`/Admin/GetSubCategories?categoryId=${categoryId}`);
+                const data = await res.json();
+
+                target.innerHTML = "";
+
+                if (data.length > 0) {
+
+                    wrapper.style.display = "block";
+
+                    let defaultOption = document.createElement("option");
+                    defaultOption.value = "";
+                    defaultOption.text = "Select SubCategory";
+                    target.appendChild(defaultOption);
+
+                    data.forEach(item => {
+                        const opt = document.createElement("option");
+                        opt.value = item.subCategoryId;
+                        opt.text = item.subCategoryName;
+                        target.appendChild(opt);
+                    });
+
+                } else {
+                    wrapper.style.display = "none";
+
+                    // 🔥 IMPORTANT: null bhejo
+                    const hidden = modal.querySelector(".subcategory-hidden");
+                    if (hidden) hidden.value = "";
+                }
+            }
+
+            document.querySelectorAll(".category-select").forEach(select => {
+
+                select.addEventListener("change", () => handleCategoryChange(select));
+
+                // 🔥 initial load
+                handleCategoryChange(select);
+            });
+
+            document.querySelectorAll(".subcategory-select").forEach(select => {
+                select.addEventListener("change", () => {
+                    const hidden = select.closest(".modal").querySelector(".subcategory-hidden");
+                    if (hidden) {
+                        hidden.value = select.value;
+                    }
+                });
+            });
+
+        })();
+    </script>
+}

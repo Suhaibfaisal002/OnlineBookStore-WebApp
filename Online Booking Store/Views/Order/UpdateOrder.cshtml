@@ -1,0 +1,59 @@
+@model UpdateOrderViewModel
+@{
+    ViewData["Title"] = "Update Order";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="content-card">
+            <h1 class="mb-3">Update Order @Model.OrderNumber</h1>
+            <form asp-action="UpdateOrder" method="post" class="row g-3">
+                <input asp-for="OrderNumber" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-12">
+                    <label asp-for="DeliveryAddress" class="form-label"></label>
+                    <textarea asp-for="DeliveryAddress" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Distance" class="form-label"></label>
+                    <input asp-for="Distance" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="DeliveryType" class="form-label"></label>
+                    <select asp-for="DeliveryType" class="form-select">
+                        <option value="Standard">Standard</option>
+                        <option value="Express">Express</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PaymentType" class="form-label"></label>
+                    <select asp-for="PaymentType" class="form-select">
+                        <option value="BeforeDelivery">Before Delivery</option>
+                        <option value="AfterDelivery">After Delivery</option>
+                        <option value="OnlinePayment">Online Payment</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PaymentMode" class="form-label"></label>
+                    <select asp-for="PaymentMode" class="form-select">
+                        <option value="Cash">Cash</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="CreditCard">Credit Card</option>
+                        <option value="DemandDraft">Demand Draft</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Remarks" class="form-label"></label>
+                    <textarea asp-for="Remarks" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-12 text-end">
+                    <button class="btn btn-dark" type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

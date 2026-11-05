@@ -1,0 +1,130 @@
+@using Online_Booking_Store.Models
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero-panel mb-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <span class="badge text-bg-light mb-3">Shradha Book Stores</span>
+            <h1 class="display-5 mb-3">A warm online bookstore for study, stories, stationery, and everyday essentials.</h1>
+            <p class="lead mb-0">Browse curated books, magazines, CDs, DVDs, and utilities with simple ordering, clear delivery rules, and easy order tracking.</p>
+            
+            <form class="hero-search" asp-controller="Product" asp-action="Index" method="get">
+                <input class="form-control form-control-lg" type="search" name="query" value="@ViewBag.SearchQuery" placeholder="Search by title, code, or description" />
+                <button class="btn btn-light btn-lg px-4" type="submit">Explore</button>
+            </form>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="content-card h-100">
+                <div class="row g-3 text-center">
+                    <div class="col-6">
+                        <div class="metric-card" style="color: black;">
+                            <p>Categories</p>
+                            <h3>@ViewBag.Categories?.Count</h3>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="metric-card" style="color: black;">
+                            <p>Total Products</p>
+                            <h3>@ViewBag.TotalProducts </h3>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="metric-card" style="color: black;">
+                            <p>Delivery Rule</p>
+                            <h3>Free within 3 KM</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ✅ Categories Section -->
+<section class="mb-5">
+    <div class="section-heading">
+        <div>
+            <h2 class="section-title mb-1">Browse by category</h2>
+            <p>Jump straight into the shelves that matter most to you.</p>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-3">
+        @{
+            var categories = ViewBag.Categories as List<Category>;
+        }
+
+        @if (categories != null)
+        {
+            foreach (var category in categories)
+            {
+                <a class="category-chip"
+                       asp-controller="Product"
+                       asp-action="Category"
+                       asp-route-categoryId="@category.CategoryId">
+                    @category.CategoryName
+                </a>
+            }
+        }
+    </div>
+</section>
+
+<!-- ✅ Featured Products -->
+<section>
+    <div class="section-heading">
+        <div>
+            <h2 class="section-title mb-1">Featured products</h2>
+            <p>Latest additions available in the store right now.</p>
+        </div>
+        <a class="btn btn-outline-dark" asp-controller="Product" asp-action="Index">View All Products</a>
+    </div>
+
+    @{
+        var products = ViewBag.FeaturedProducts as List<Product>;
+    }
+
+    @if (products == null || products.Count == 0)
+    {
+        <div class="content-card empty-state">
+            <h4>No products added yet</h4>
+            <p>The catalog is ready. Add products from the admin panel to populate the storefront.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var product in products)
+            {
+                <div class="col-md-6 col-xl-3">
+                    <div class="product-card">
+                        <img src="@(string.IsNullOrWhiteSpace(product.ImagePath) ? "/favicon.ico" : product.ImagePath)"
+                             alt="@product.ProductName" class="mb-3" />
+
+                        <p class="text-muted small mb-1">@product.Category?.CategoryName</p>
+                        <h5>@product.ProductName</h5>
+                        <p class="price mb-3">@product.Price.ToString("C")</p>
+
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-outline-dark flex-grow-1"
+                                   asp-controller="Product"
+                                   asp-action="Details"
+                                   asp-route-productCode="@product.ProductCode">
+                                Details
+                            </a>
+
+                            <form asp-controller="Product" asp-action="AddToCart" method="post" class="flex-grow-1">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@product.ProductId" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button type="submit" class="btn btn-dark w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</section>

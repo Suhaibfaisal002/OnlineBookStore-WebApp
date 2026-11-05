@@ -1,0 +1,40 @@
+@model AdminManufacturersPageViewModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Manufacturers";
+}
+
+<div class="admin-panel-card">
+    <div class="admin-card-header">
+        <div><h3 class="mb-1">Manufacturers</h3><p>Manage publishers and suppliers used by products.</p></div>
+        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addManufacturerModal">Add</button>
+    </div>
+    <div class="table-shell">
+        <table class="table admin-table">
+            <thead><tr><th>Code</th><th>Name</th><th>Contact</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var manufacturer in Model.Manufacturers)
+                {
+                    <tr>
+                        <td>@manufacturer.ManufacturerCode</td>
+                        <td>@manufacturer.ManufacturerName</td>
+                        <td>@manufacturer.ContactInfo</td>
+                        <td><span class="status-badge @(manufacturer.IsActive ? "completed" : "cancelled")">@(manufacturer.IsActive ? "Active" : "Inactive")</span></td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editManufacturerModal-@manufacturer.ManufacturerId">Edit</button>
+                            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteManufacturerModal-@manufacturer.ManufacturerId">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="addManufacturerModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Add Manufacturer</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form asp-action="AddManufacturer" method="post" class="row g-3">@Html.AntiForgeryToken()<div class="col-12"><label class="form-label">Name</label><input class="form-control" name="ManufacturerName" /></div><div class="col-12"><label class="form-label">Contact</label><input class="form-control" name="ContactInfo" /></div><div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" name="IsActive" value="true" checked /><label class="form-check-label">Active</label></div></div><div class="col-12 text-end"><button class="btn btn-dark" type="submit">Save</button></div></form></div></div></div></div>
+
+@foreach (var manufacturer in Model.Manufacturers)
+{
+    <div class="modal fade" id="editManufacturerModal-@manufacturer.ManufacturerId" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Edit Manufacturer</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form asp-action="EditManufacturer" method="post" class="row g-3">@Html.AntiForgeryToken()<input type="hidden" name="ManufacturerId" value="@manufacturer.ManufacturerId" /><div class="col-12"><label class="form-label">Name</label><input class="form-control" name="ManufacturerName" value="@manufacturer.ManufacturerName" /></div><div class="col-12"><label class="form-label">Contact</label><input class="form-control" name="ContactInfo" value="@manufacturer.ContactInfo" /></div><div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" name="IsActive" value="true" checked="@manufacturer.IsActive" /><label class="form-check-label">Active</label></div></div><div class="col-12 text-end"><button class="btn btn-dark" type="submit">Save</button></div></form></div></div></div></div>
+    <div class="modal fade" id="deleteManufacturerModal-@manufacturer.ManufacturerId" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Delete Manufacturer</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Delete <strong>@manufacturer.ManufacturerName</strong>?</p><form asp-action="DeleteManufacturer" method="post">@Html.AntiForgeryToken()<input type="hidden" name="id" value="@manufacturer.ManufacturerId" /><button class="btn btn-danger" type="submit">Confirm Delete</button></form></div></div></div></div>
+}

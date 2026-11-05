@@ -1,0 +1,115 @@
+@using Microsoft.EntityFrameworkCore
+@inject Online_Booking_Store.Data.ShradhaBookStoreContext DbContext
+@inject IConfiguration Configuration
+@{
+    var adminName = Context.Session.GetString(SessionKeys.UserName) ?? "Admin";
+    var adminId = Context.Session.GetInt32(SessionKeys.UserId);
+    var adminUser = adminId.HasValue
+        ? await DbContext.Users.FirstOrDefaultAsync(x => x.UserId == adminId.Value)
+        : null;
+    var logoPath = Configuration["ApplicationSettings:LogoPath"] ?? "/Images/Brand/store-logo.png";
+    var adminAvatar = adminUser?.ProfileImagePath;
+    var adminInitial = string.IsNullOrWhiteSpace(adminUser?.FullName)
+        ? (string.IsNullOrWhiteSpace(adminName) ? "A" : adminName[..1].ToUpper())
+        : adminUser.FullName[..1].ToUpper();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Online_Booking_Store.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)  <!-- ✅ ADD THIS -->
+</head>
+<body class="admin-body">
+    <div class="admin-shell">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" asp-controller="Admin" asp-action="Dashboard">
+                <span class="admin-brand-logo">
+                    <img src="@logoPath" alt="Shradha logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                    <span class="store-brand-fallback">SB</span>
+                </span>
+                <div>
+                    <strong>Shradha Admin</strong>
+                    <small>Control center</small>
+                </div>
+            </a>
+            <nav class="admin-nav">
+                <a class="@(currentAction == "Dashboard" ? "active" : "")" asp-controller="Admin" asp-action="Dashboard">Dashboard</a>
+                <a class="@(currentAction == "Products" ? "active" : "")" asp-controller="Admin" asp-action="Products">Products</a>
+                <a class="@(currentAction == "Orders" || currentAction == "OrderDetail" ? "active" : "")" asp-controller="Admin" asp-action="Orders">Orders</a>
+                <a class="@(currentAction == "Customers" ? "active" : "")" asp-controller="Admin" asp-action="Customers">Customers</a>
+                <a class="@(currentAction == "Feedbacks" ? "active" : "")" asp-controller="Admin" asp-action="Feedbacks">Feedbacks</a>
+                <a class="@(currentAction == "ContactMessages" ? "active" : "")" asp-controller="Admin" asp-action="ContactMessages">
+                    Contact Messages
+                    @if (ViewBag.UnreadMessagesCount > 0)
+                    {
+                        <span class="badge bg-danger ms-2">@ViewBag.UnreadMessagesCount</span>
+                    }
+                </a>
+                <a class="@(currentAction == "FAQs" ? "active" : "")" asp-controller="Admin" asp-action="FAQs">FAQs</a>
+                <a class="@(currentAction == "Categories" ? "active" : "")" asp-controller="Admin" asp-action="Categories">Categories</a>
+                <a class="@(currentAction == "Manufacturers" ? "active" : "")" asp-controller="Admin" asp-action="Manufacturers">Manufacturers</a>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <a asp-controller="Home" asp-action="Index">View Website</a>
+                <a asp-controller="Admin" asp-action="Logout">Logout</a>
+            </div>
+        </aside>
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div>
+                    <p class="admin-topbar-label">Shradha Book Stores</p>
+                    <h1>@ViewData["Title"]</h1>
+                </div>
+                <div class="dropdown">
+                    <button class="btn admin-profile-trigger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <span class="admin-avatar">
+                            @if (!string.IsNullOrWhiteSpace(adminAvatar))
+                            {
+                                <img src="@adminAvatar" alt="@adminName" />
+                            }
+                            else
+                            {
+                                <img src="@logoPath" alt="Store logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                                <span class="store-brand-fallback">@adminInitial</span>
+                            }
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                        <li><h6 class="dropdown-header">Admin Account</h6></li>
+                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Profile">Profile Settings</a></li>
+                        <li>
+                            <form asp-controller="Admin" asp-action="UpdateProfilePhoto" method="post" enctype="multipart/form-data" class="dropdown-item p-0 profile-upload-item">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="returnUrl" value="@($"{Context.Request.Path}{Context.Request.QueryString}")" />
+                                <label class="dropdown-item profile-upload-label">
+                                    <input type="file" name="profileImage" accept="image/*" onchange="this.form.submit()" />
+                                    Update Photo
+                                </label>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Index">View Website</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item text-danger" asp-controller="Admin" asp-action="Logout">Logout</a></li>
+                    </ul>
+                </div>
+            </header>
+            <main class="admin-content">
+                <partial name="_TempDataAlerts" />
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

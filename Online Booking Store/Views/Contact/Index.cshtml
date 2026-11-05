@@ -1,0 +1,339 @@
+﻿@model ContactMessage
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<!-- Contact Section -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+        </div>
+
+        <!-- Success Alert - Single instance -->
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row g-4">
+            <!-- Left side: Google Map -->
+            <div class="col-lg-6">
+                <div class="map-card h-100">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-0">
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a3169a7c1b1%3A0x5f8b4c8d8d8d8d8d!2sFinancial%20District%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy"
+                                    title="Our Location">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center py-3">
+                            <h5 class="mb-0"><i class="bi bi-geo-alt-fill text-primary me-2"></i>123 Booking Street, New York, NY 10005</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Contact Form -->
+            <div class="col-lg-6">
+                <div class="contact-form-card">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-lg-5">
+                            <h3 class="card-title mb-4">Send Message</h3>
+                            
+                            <form asp-action="Index" method="post" id="contactForm">
+                                @Html.AntiForgeryToken()
+                                
+                                <!-- Name Field -->
+                                <div class="form-group mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="bi bi-person-fill text-primary"></i>
+                                        </span>
+                                        <input asp-for="Name" class="form-control border-start-0 ps-0" placeholder="Full Name" />
+                                    </div>
+                                    <span asp-validation-for="Name" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Email Field -->
+                                <div class="form-group mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="bi bi-envelope-fill text-primary"></i>
+                                        </span>
+                                        <input asp-for="Email" class="form-control border-start-0 ps-0" placeholder="Email Address" />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Phone Field -->
+                                <div class="form-group mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="bi bi-telephone-fill text-primary"></i>
+                                        </span>
+                                        <input asp-for="Phone" class="form-control border-start-0 ps-0" placeholder="Phone Number" />
+                                    </div>
+                                    <span asp-validation-for="Phone" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Subject Field -->
+                                <div class="form-group mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="bi bi-tag-fill text-primary"></i>
+                                        </span>
+                                        <input asp-for="Subject" class="form-control border-start-0 ps-0" placeholder="Subject" />
+                                    </div>
+                                    <span asp-validation-for="Subject" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Message Field -->
+                                <div class="form-group mb-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="bi bi-chat-dots-fill text-primary"></i>
+                                        </span>
+                                        <textarea asp-for="Message" class="form-control border-start-0 ps-0" rows="5" placeholder="Your Message..."></textarea>
+                                    </div>
+                                    <span asp-validation-for="Message" class="text-danger small"></span>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-primary w-100 py-3" id="submitBtn">
+                                    <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true" id="btnSpinner"></span>
+                                    <span id="btnText">Send Message</span>
+                                    <i class="bi bi-send ms-2" id="btnIcon"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        /* Contact Section Styles */
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #00bcd4);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Map Container */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .map-card:hover .map-container iframe {
+            transform: scale(1.02);
+        }
+
+        /* Form Card */
+        .contact-form-card .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form-card .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        }
+
+        /* Input Groups */
+        .input-group-text {
+            background: white;
+            border: 1px solid #ced4da;
+            border-right: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control {
+            border-left: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ced4da;
+            box-shadow: none;
+            border-left: none;
+        }
+
+        .form-control:focus + .input-group-text,
+        .form-control:focus ~ .input-group-text {
+            border-color: #86b7fe;
+        }
+
+        .form-control:focus {
+            border-color: #86b7fe;
+        }
+
+        /* Submit Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #00bcd4);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+            background: linear-gradient(135deg, #0069d9, #00a5b8);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Validation Styles */
+        .text-danger {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Responsive Adjustments */
+        @@media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .map-container {
+                min-height: 300px;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .map-container {
+                min-height: 250px;
+            }
+            
+            .contact-form-card .card-body {
+                padding: 1.5rem !important;
+            }
+        }
+
+        /* Loading State */
+        .btn-primary.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* Hover Effects for Icons */
+        .input-group:hover .input-group-text {
+            background: #f0f0f0 !important;
+        }
+
+        /* Success Alert Animation */
+        .alert-success {
+            animation: slideDown 0.5s ease;
+        }
+
+        @@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        $(document).ready(function() {
+            // Loading state for form submission
+            $('#contactForm').on('submit', function() {
+                var btn = $('#submitBtn');
+                var spinner = $('#btnSpinner');
+                var btnText = $('#btnText');
+                var btnIcon = $('#btnIcon');
+
+                btn.addClass('loading');
+                spinner.removeClass('d-none');
+                btnText.text('Sending...');
+                btnIcon.hide();
+
+                return true;
+            });
+
+            // Auto-hide alert after 5 seconds
+            setTimeout(function() {
+                $('.alert').fadeOut('slow');
+            }, 5000);
+        });
+    </script>
+}

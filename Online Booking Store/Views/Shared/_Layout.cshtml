@@ -1,0 +1,279 @@
+@using Microsoft.EntityFrameworkCore
+@inject Online_Booking_Store.Data.ShradhaBookStoreContext DbContext
+@inject IConfiguration Configuration
+@{
+    var categories = await DbContext.Categories
+        .Where(x => x.IsActive)
+        .OrderBy(x => x.CategoryName)
+        .ToListAsync();
+
+    var userId = Context.Session.GetInt32(SessionKeys.UserId);
+    var userName = Context.Session.GetString(SessionKeys.UserName);
+    var userRole = Context.Session.GetString(SessionKeys.UserRole);
+    var guestSessionId = Context.Session.GetString(SessionKeys.GuestSessionId);
+    var currentUser = userId.HasValue
+        ? await DbContext.Users.FirstOrDefaultAsync(x => x.UserId == userId.Value)
+        : null;
+    var userAvatar = currentUser?.ProfileImagePath;
+    var userInitial = string.IsNullOrWhiteSpace(currentUser?.FullName)
+        ? (string.IsNullOrWhiteSpace(userName) ? "U" : userName[..1].ToUpper())
+        : currentUser.FullName[..1].ToUpper();
+    var cartCount = userId.HasValue
+        ? await DbContext.Cart.CountAsync(x => x.UserId == userId.Value)
+        : string.IsNullOrWhiteSpace(guestSessionId)
+            ? 0
+            : await DbContext.Cart.CountAsync(x => x.UserId == null && x.SessionId == guestSessionId);
+
+    var storeName = Configuration["ApplicationSettings:StoreName"] ?? "Shradha Book Stores";
+    var logoPath = Configuration["ApplicationSettings:LogoPath"] ?? "/Images/Brand/store-logo.png";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @storeName</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Online_Booking_Store.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="storefront-body">
+    <header class="store-header sticky-top">
+        <nav class="navbar navbar-expand-lg storefront-navbar">
+            <div class="container-xxl">
+                <a class="navbar-brand store-brand" asp-controller="Home" asp-action="Index">
+                    <span class="store-brand-logo">
+                        <img src="@logoPath" alt="@storeName logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                        <span class="store-brand-fallback">SB</span>
+                    </span>
+                    <span>
+                        <strong>@storeName</strong>
+                        <small>Books, utilities and more</small>
+                    </span>
+                </a>
+            
+                <!-- Mobile Toggle Button - Black -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#storeNavbar"
+                        aria-controls="storeNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Collapse -->
+                <div class="collapse navbar-collapse" id="storeNavbar">
+                    <!-- Main Navigation Links -->
+                    <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Products</a>
+                            <ul class="dropdown-menu shadow-sm border-0">
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Index">All Products</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                @foreach (var category in categories)
+                                {
+                                    <li><a class="dropdown-item" asp-controller="Product" asp-action="Category" asp-route-categoryId="@category.CategoryId">@category.CategoryName</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="FAQ" asp-action="Index">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                        </li>
+                        @if (!string.IsNullOrWhiteSpace(userName))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Feedback" asp-action="Index">Feedback</a>
+                            </li>
+                        }
+                    
+                        <!-- Mobile Search and Auth (Visible only on mobile) -->
+                        <li class="nav-item d-lg-none mt-3">
+                            <form class="d-flex store-search w-100" asp-controller="Product" asp-action="Index" method="get">
+                                <input class="form-control" type="search" name="query" placeholder="Search books, magazines..." />
+                                <button class="btn btn-dark ms-2" type="submit">Search</button>
+                            </form>
+                        </li>
+                    
+                        <!-- Mobile Cart and Profile (Visible only on mobile) -->
+                        <li class="nav-item d-lg-none mt-2">
+                            <div class="d-flex flex-column gap-2">
+                                <a class="btn btn-light cart-chip w-100" asp-controller="Cart" asp-action="Index">
+                                    Cart
+                                    <span class="badge bg-dark text-white">@cartCount</span>
+                                </a>
+                            
+                                @if (string.Equals(userRole, AppRoles.Admin, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <div class="dropdown w-100">
+                                        <button class="btn btn-outline-dark profile-trigger dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                                            <span class="profile-avatar">
+                                                @if (!string.IsNullOrWhiteSpace(userAvatar))
+                                                {
+                                                    <img src="@userAvatar" alt="@userName" />
+                                                }
+                                                else
+                                                {
+                                                    <span>@userInitial</span>
+                                                }
+                                            </span>
+                                            <span>@userName</span>
+                                        </button>
+                                        <ul class="dropdown-menu shadow-sm w-100">
+                                            <li><h6 class="dropdown-header">Admin Account</h6></li>
+                                            <li><a class="dropdown-item" asp-controller="Admin" asp-action="Dashboard">Admin Panel</a></li>
+                                            <li><a class="dropdown-item" asp-controller="Admin" asp-action="Profile">Profile Settings</a></li>
+                                            <li><hr class="dropdown-divider" /></li>
+                                            <li><a class="dropdown-item text-danger" asp-controller="Customer" asp-action="Logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                                else if (!string.IsNullOrWhiteSpace(userName))
+                                {
+                                    <div class="dropdown w-100">
+                                        <button class="btn btn-outline-dark profile-trigger dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                                            <span class="profile-avatar">
+                                                @if (!string.IsNullOrWhiteSpace(userAvatar))
+                                                {
+                                                    <img src="@userAvatar" alt="@userName" />
+                                                }
+                                                else
+                                                {
+                                                    <span>@userInitial</span>
+                                                }
+                                            </span>
+                                            <span>@userName</span>
+                                        </button>
+                                        <ul class="dropdown-menu shadow-sm w-100">
+                                            <li><h6 class="dropdown-header">Account</h6></li>
+                                            <li><a class="dropdown-item" asp-controller="Customer" asp-action="Profile">Profile Settings</a></li>
+                                            <li><a class="dropdown-item" asp-controller="Order" asp-action="OrderHistory">Order History</a></li>
+                                            <li><hr class="dropdown-divider" /></li>
+                                            <li><a class="dropdown-item text-danger" asp-controller="Customer" asp-action="Logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex gap-2">
+                                        <a class="btn btn-outline-dark flex-fill" asp-controller="Customer" asp-action="Login">Login</a>
+                                        <a class="btn btn-dark flex-fill" asp-controller="Customer" asp-action="Register">Register</a>
+                                    </div>
+                                }
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Desktop Search Form -->
+                    <form class="d-flex store-search me-lg-3 d-none d-lg-flex" asp-controller="Product" asp-action="Index" method="get">
+                        <input class="form-control" type="search" name="query" placeholder="Search books, magazines..." />
+                        <button class="btn btn-dark" type="submit">Search</button>
+                    </form>
+
+                    <!-- Desktop User Section -->
+                    <div class="d-none d-lg-flex align-items-center gap-2">
+                        <a class="btn btn-light cart-chip" asp-controller="Cart" asp-action="Index">
+                            Cart
+                            <span class="badge bg-dark text-white">@cartCount</span>
+                        </a>
+                    
+                        @if (string.Equals(userRole, AppRoles.Admin, StringComparison.OrdinalIgnoreCase))
+                        {
+                            <div class="dropdown">
+                                <button class="btn btn-outline-dark profile-trigger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    <span class="profile-avatar">
+                                        @if (!string.IsNullOrWhiteSpace(userAvatar))
+                                        {
+                                            <img src="@userAvatar" alt="@userName" />
+                                        }
+                                        else
+                                        {
+                                            <span>@userInitial</span>
+                                        }
+                                    </span>
+                                    <span class="d-none d-lg-inline">@userName</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <li><h6 class="dropdown-header">Admin Account</h6></li>
+                                    <li><a class="dropdown-item" asp-controller="Admin" asp-action="Dashboard">Admin Panel</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Admin" asp-action="Profile">Profile Settings</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item text-danger" asp-controller="Customer" asp-action="Logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        }
+                        else if (!string.IsNullOrWhiteSpace(userName))
+                        {
+                            <div class="dropdown">
+                                <button class="btn btn-outline-dark profile-trigger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    <span class="profile-avatar">
+                                        @if (!string.IsNullOrWhiteSpace(userAvatar))
+                                        {
+                                            <img src="@userAvatar" alt="@userName" />
+                                        }
+                                        else
+                                        {
+                                            <span>@userInitial</span>
+                                        }
+                                    </span>
+                                    <span class="d-none d-lg-inline">@userName</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <li><h6 class="dropdown-header">Account</h6></li>
+                                    <li><a class="dropdown-item" asp-controller="Customer" asp-action="Profile">Profile Settings</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Order" asp-action="OrderHistory">Order History</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item text-danger" asp-controller="Customer" asp-action="Logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-dark" asp-controller="Customer" asp-action="Login">Login</a>
+                            <a class="btn btn-dark" asp-controller="Customer" asp-action="Register">Register</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="store-main">
+        <div class="container-xxl py-4">
+            <partial name="_TempDataAlerts" />
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="store-footer">
+        <div class="container-xxl">
+            <div>
+                <h5>@storeName</h5>
+                <p>Your neighborhood-inspired online book store for stories, study material, stationery, and essentials.</p>
+            </div>
+            <div>
+                <h6>Quick Links</h6>
+                <a asp-controller="Product" asp-action="Index">Browse Products</a>
+                <a asp-controller="Order" asp-action="TrackOrder">Track Order</a>
+                <a asp-controller="FAQ" asp-action="Index">FAQs</a>
+            </div>
+            <div>
+                <h6>Contact</h6>
+                <p>@Configuration["ApplicationSettings:SupportEmail"]</p>
+                <p>@Configuration["ApplicationSettings:SupportPhone"]</p>
+                <p>Shradha General Book Stores</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

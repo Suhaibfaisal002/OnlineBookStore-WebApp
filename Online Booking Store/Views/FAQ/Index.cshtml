@@ -1,0 +1,31 @@
+@model List<Faq>
+@{
+    ViewData["Title"] = "FAQs";
+}
+
+<div class="content-card">
+    <div class="section-heading">
+        <div>
+            <h1 class="section-title mb-1">Frequently Asked Questions</h1>
+            <p>Quick answers about delivery, cancellation, and payment.</p>
+        </div>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-@i">
+                    <button class="accordion-button @(i > 0 ? "collapsed" : string.Empty)" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@i">
+                        @Model[i].Question
+                    </button>
+                </h2>
+                <div id="collapse-@i" class="accordion-collapse collapse @(i == 0 ? "show" : string.Empty)" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        @Model[i].Answer
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

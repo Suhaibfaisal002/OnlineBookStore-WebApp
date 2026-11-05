@@ -1,0 +1,100 @@
+@model AdminFaqsPageViewModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "FAQs";
+}
+
+<div class="admin-panel-card">
+    <div class="admin-card-header">
+        <div>
+            <h3 class="mb-1">FAQs</h3>
+            <p>Maintain the customer-facing frequently asked questions.</p>
+        </div>
+        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addFaqModal">Add FAQ</button>
+    </div>
+    <div class="table-shell">
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Sort</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var faq in Model.Faqs)
+                {
+                    <tr>
+                        <td>@faq.Question</td>
+                        <td>@faq.SortOrder</td>
+                        <td><span class="status-badge @(faq.IsActive ? "completed" : "cancelled")">@(faq.IsActive ? "Active" : "Inactive")</span></td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editFaqModal-@faq.FaqId">Edit</button>
+                            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteFaqModal-@faq.FaqId">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="addFaqModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add FAQ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddFAQ" method="post" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <div class="col-12"><label class="form-label">Question</label><textarea class="form-control" name="Question" rows="2"></textarea></div>
+                    <div class="col-12"><label class="form-label">Answer</label><textarea class="form-control" name="Answer" rows="4"></textarea></div>
+                    <div class="col-md-4"><label class="form-label">Sort Order</label><input class="form-control" name="SortOrder" value="1" /></div>
+                    <div class="col-md-4 d-flex align-items-center"><div class="form-check mt-4"><input class="form-check-input" type="checkbox" name="IsActive" value="true" checked /><label class="form-check-label">Active</label></div></div>
+                    <div class="col-12 text-end"><button class="btn btn-dark" type="submit">Save FAQ</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var faq in Model.Faqs)
+{
+    <div class="modal fade" id="editFaqModal-@faq.FaqId" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Edit FAQ</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <form asp-action="EditFAQ" method="post" class="row g-3">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="FaqId" value="@faq.FaqId" />
+                        <div class="col-12"><label class="form-label">Question</label><textarea class="form-control" name="Question" rows="2">@faq.Question</textarea></div>
+                        <div class="col-12"><label class="form-label">Answer</label><textarea class="form-control" name="Answer" rows="4">@faq.Answer</textarea></div>
+                        <div class="col-md-4"><label class="form-label">Sort Order</label><input class="form-control" name="SortOrder" value="@faq.SortOrder" /></div>
+                        <div class="col-md-4 d-flex align-items-center"><div class="form-check mt-4"><input class="form-check-input" type="checkbox" name="IsActive" value="true" checked="@faq.IsActive" /><label class="form-check-label">Active</label></div></div>
+                        <div class="col-12 text-end"><button class="btn btn-dark" type="submit">Save Changes</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteFaqModal-@faq.FaqId" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Delete FAQ</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <p>Delete this FAQ permanently?</p>
+                    <form asp-action="DeleteFAQ" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@faq.FaqId" />
+                        <button class="btn btn-danger" type="submit">Confirm Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,22 @@
+@model Order
+@{
+    ViewData["Title"] = "Cancel Order";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="content-card">
+            <h1 class="mb-3">Cancel Order</h1>
+            <p>You are about to cancel order <strong>@Model.OrderNumber</strong>. If cancelled after 24 hours and already dispatched, delivery charges for both directions may apply.</p>
+            <form asp-action="ConfirmCancel" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="orderNumber" value="@Model.OrderNumber" />
+                <input type="hidden" name="email" value="@Model.User?.Email" />
+                <div class="d-flex gap-3">
+                    <a class="btn btn-outline-dark" asp-action="TrackOrder">Back</a>
+                    <button class="btn btn-danger" type="submit">Confirm Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

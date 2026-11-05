@@ -1,0 +1,81 @@
+@model Order
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Order Detail";
+}
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="admin-panel-card">
+            <div class="admin-card-header">
+                <div>
+                    <h3 class="mb-1">Order @Model.OrderNumber</h3>
+                    <p>@Model.OrderDate.ToString("dd MMM yyyy hh:mm tt")</p>
+                </div>
+                <span class="status-badge @Model.OrderStatus.ToLowerInvariant()">@Model.OrderStatus</span>
+            </div>
+            <div class="table-shell">
+                <table class="table admin-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <tr>
+                                <td>@item.Product?.ProductName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.UnitPrice.ToString("C")</td>
+                                <td>@item.SubTotal.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="admin-panel-card mb-4">
+            <h4 class="mb-3">Customer Details</h4>
+            <p class="mb-1"><strong>Name:</strong> @Model.User?.FullName</p>
+            <p class="mb-1"><strong>Email:</strong> @Model.User?.Email</p>
+            <p class="mb-1"><strong>Phone:</strong> @Model.User?.Phone</p>
+            <p class="mb-0"><strong>Delivery Address:</strong> @Model.DeliveryAddress</p>
+        </div>
+        <div class="admin-panel-card mb-4">
+            <h4 class="mb-3">Payment Info</h4>
+            <p class="mb-1"><strong>Type:</strong> @Model.PaymentType</p>
+            <p class="mb-1"><strong>Status:</strong> @Model.PaymentStatus</p>
+            <p class="mb-1"><strong>Delivery Charge:</strong> @Model.DeliveryCharge.ToString("C")</p>
+            <p class="mb-1"><strong>Discount:</strong> @Model.DiscountAmount.ToString("C")</p>
+            <p class="mb-0"><strong>Grand Total:</strong> @Model.GrandTotal.ToString("C")</p>
+        </div>
+        <div class="admin-panel-card">
+            <h4 class="mb-3">Update Status</h4>
+            <form asp-action="UpdateOrderStatus" method="post" class="row g-3">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="orderId" value="@Model.OrderId" />
+                <div class="col-12">
+                    <select class="form-select" name="status">
+                        <option value="Pending" selected="@(Model.OrderStatus == "Pending")">Pending</option>
+                        <option value="Processing" selected="@(Model.OrderStatus == "Processing")">Processing</option>
+                        <option value="Dispatched" selected="@(Model.OrderStatus == "Dispatched")">Dispatched</option>
+                        <option value="Delivered" selected="@(Model.OrderStatus == "Delivered")">Delivered</option>
+                        <option value="Cancelled" selected="@(Model.OrderStatus == "Cancelled")">Cancelled</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" name="remarks" rows="3" placeholder="Add remarks">@Model.Remarks</textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-dark w-100" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

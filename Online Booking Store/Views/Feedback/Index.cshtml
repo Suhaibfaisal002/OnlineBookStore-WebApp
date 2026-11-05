@@ -1,0 +1,119 @@
+@model FeedbackPageViewModel
+@{
+    ViewData["Title"] = "Feedback & Queries";
+}
+
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="content-card">
+            <h1 class="mb-3">Feedback & Queries</h1>
+            <p class="text-muted">Share your experience or ask a question. Replies from our team appear in your history.</p>
+
+            <form asp-action="Submit" method="post" class="row g-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6">
+                    <label asp-for="Form.FullName" class="form-label"></label>
+                    @if (Model.IsSignedIn)
+                    {
+                        <input asp-for="Form.FullName" class="form-control" readonly />
+                    }
+                    else
+                    {
+                        <input asp-for="Form.FullName" class="form-control" />
+                    }
+                    <span asp-validation-for="Form.FullName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Form.Email" class="form-label"></label>
+                    @if (Model.IsSignedIn)
+                    {
+                        <input asp-for="Form.Email" class="form-control" readonly />
+                    }
+                    else
+                    {
+                        <input asp-for="Form.Email" class="form-control" />
+                    }
+                    <span asp-validation-for="Form.Email" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Form.Subject" class="form-label"></label>
+                    <input asp-for="Form.Subject" class="form-control" />
+                    <span asp-validation-for="Form.Subject" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Form.Message" class="form-label"></label>
+                    <textarea asp-for="Form.Message" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Form.Message" class="text-danger"></span>
+                </div>
+                <div class="col-12 text-end">
+                    <button class="btn btn-dark px-4" type="submit">Send Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="content-card feedback-history">
+            <div class="section-heading">
+                <div>
+                    <h2 class="section-title mb-1">Your Feedback History</h2>
+                    <p>Track your requests and see admin replies.</p>
+                </div>
+            </div>
+
+            @if (!Model.IsSignedIn)
+            {
+                <div class="empty-state">
+                    <h4>Sign in to view replies</h4>
+                    <p>Login to see feedback status and admin responses in one place.</p>
+                    <a class="btn btn-outline-dark" asp-controller="Customer" asp-action="Login">Login</a>
+                </div>
+            }
+            else if (Model.Entries.Count == 0)
+            {
+                <div class="empty-state">
+                    <h4>No feedback submitted yet</h4>
+                    <p>Once you send a message, it will appear here with a response status.</p>
+                </div>
+            }
+            else
+            {
+                <div class="d-grid gap-3">
+                    @foreach (var entry in Model.Entries)
+                    {
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h5 class="mb-1">@entry.Subject</h5>
+                                    <small class="text-muted">Submitted @entry.SubmittedOn.ToString("dd MMM yyyy")</small>
+                                </div>
+                                <span class="status-badge @(entry.IsResolved ? "completed" : "pending")">@(entry.IsResolved ? "Resolved" : "Open")</span>
+                            </div>
+                            <p class="mb-2">@entry.Message</p>
+                            @if (!string.IsNullOrWhiteSpace(entry.AdminReply))
+                            {
+                                <div class="admin-reply">
+                                    <div class="admin-reply-header">
+                                        <strong>Admin Reply</strong>
+                                        @if (entry.RepliedOn.HasValue)
+                                        {
+                                            <small class="text-muted">@entry.RepliedOn.Value.ToString("dd MMM yyyy")</small>
+                                        }
+                                    </div>
+                                    <p class="mb-0">@entry.AdminReply</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted mb-0">Awaiting admin response.</p>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

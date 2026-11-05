@@ -1,0 +1,209 @@
+@model ProductListViewModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="row g-4">
+    <div class="col-lg-3">
+        <div class="product-filter-card p-4">
+            <div class="filter-header">
+                <h4 class="mb-1">Filter Products</h4>
+                <p class="text-muted mb-0">Refine by category, brand, price, and more.</p>
+            </div>
+            <form asp-action="Index" method="get" class="filter-form">
+                <input type="hidden" name="query" value="@Model.SearchQuery" />
+
+                <div class="filter-group">
+                    <h6>Categories</h6>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="categoryIds" value="@category.CategoryId" id="cat-@category.CategoryId" @(Model.SelectedCategoryIds.Contains(category.CategoryId) ? "checked" : null) />
+                            <label class="form-check-label" for="cat-@category.CategoryId">@category.CategoryName</label>
+                        </div>
+                    }
+                </div>
+
+                <div class="filter-group">
+                    <h6>Subcategories</h6>
+                    @if (Model.SubCategories.Count == 0)
+                    {
+                        <p class="text-muted small">Select a category to see subcategories.</p>
+                    }
+                    else
+                    {
+                        @foreach (var subCategory in Model.SubCategories)
+                        {
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="subCategoryIds" value="@subCategory.SubCategoryId" id="sub-@subCategory.SubCategoryId" @(Model.SelectedSubCategoryIds.Contains(subCategory.SubCategoryId) ? "checked" : null) />
+                                <label class="form-check-label" for="sub-@subCategory.SubCategoryId">@subCategory.SubCategoryName</label>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="filter-group">
+                    <h6>Publishers & Brands</h6>
+                    @foreach (var manufacturer in Model.Manufacturers)
+                    {
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="manufacturerIds" value="@manufacturer.ManufacturerId" id="man-@manufacturer.ManufacturerId" @(Model.SelectedManufacturerIds.Contains(manufacturer.ManufacturerId) ? "checked" : null) />
+                            <label class="form-check-label" for="man-@manufacturer.ManufacturerId">@manufacturer.ManufacturerName</label>
+                        </div>
+                    }
+                </div>
+
+                <div class="filter-group">
+                    <h6>Product Types</h6>
+                    <div class="filter-chip-grid">
+                        @foreach (var type in Model.ProductTypes)
+                        {
+                            <label class="filter-chip">
+                                <input type="checkbox" name="productTypes" value="@type" @(Model.SelectedProductTypes.Contains(type) ? "checked" : null) />
+                                <span>@type</span>
+                            </label>
+                        }
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h6>Price Range</h6>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <input class="form-control" type="number" name="minPrice" step="0.01" min="0" placeholder="Min" value="@(Model.MinPrice?.ToString("0.##") ?? string.Empty)" />
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control" type="number" name="maxPrice" step="0.01" min="0" placeholder="Max" value="@(Model.MaxPrice?.ToString("0.##") ?? string.Empty)" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h6>Availability</h6>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="inStockOnly" value="true" id="in-stock" @(Model.InStockOnly ? "checked" : null) />
+                        <label class="form-check-label" for="in-stock">In stock only</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h6>Sort By</h6>
+                    <select class="form-select" name="sort">
+                        <option value="">Newest arrivals</option>
+                        @if (Model.Sort == "price_asc")
+                        {
+                            <option value="price_asc" selected>Price: Low to High</option>
+                        }
+                        else
+                        {
+                            <option value="price_asc">Price: Low to High</option>
+                        }
+                        @if (Model.Sort == "price_desc")
+                        {
+                            <option value="price_desc" selected>Price: High to Low</option>
+                        }
+                        else
+                        {
+                            <option value="price_desc">Price: High to Low</option>
+                        }
+                        @if (Model.Sort == "name")
+                        {
+                            <option value="name" selected>Name: A-Z</option>
+                        }
+                        else
+                        {
+                            <option value="name">Name: A-Z</option>
+                        }
+                    </select>
+                </div>
+
+                <button class="btn btn-dark w-100 mt-3" type="submit">Apply Filters</button>
+                <a class="btn btn-outline-dark w-100 mt-2" asp-action="Index">Clear Filters</a>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="section-heading">
+            <div>
+                <h1 class="section-title mb-1">Product Catalog</h1>
+                <p>@(string.IsNullOrWhiteSpace(Model.SearchQuery) ? "Explore our full catalog." : $"Results for \"{Model.SearchQuery}\"")</p>
+            </div>
+        </div>
+
+        @if (Model.Products.Count == 0)
+        {
+            <div class="content-card empty-state">
+                <h4>No products matched your search</h4>
+                <p>Try a different keyword or adjust the category filters.</p>
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var product in Model.Products)
+                {
+                    var rating = Model.RatingLookup.TryGetValue(product.ProductId, out var ratingSummary)
+                        ? ratingSummary
+                        : new ProductRatingSummary();
+                    var roundedRating = rating.ReviewCount == 0 ? 0 : (int)Math.Round(rating.AverageRating);
+                    <div class="col-md-6 col-xl-4">
+                        <div class="product-card product-card-modern">
+                            <div class="product-card-media">
+                                <img src="@(string.IsNullOrWhiteSpace(product.ImagePath) ? "/favicon.ico" : product.ImagePath)" alt="@product.ProductName" />
+                                <span class="product-badge">@product.ProductType</span>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="d-flex justify-content-between gap-2 mb-2">
+                                    <span class="text-muted small">@product.Category?.CategoryName</span>
+                                    <span class="text-muted small">@product.ProductCode</span>
+                                </div>
+                                <h5 class="mb-1">@product.ProductName</h5>
+                                <p class="small text-muted mb-2">@product.Manufacturer?.ManufacturerName</p>
+                                <div class="rating-row mb-2">
+                                    <div class="rating-stars">
+                                        @for (var i = 1; i <= 5; i++)
+                                        {
+                                            <span class="@(i <= roundedRating ? "filled" : "")">★</span>
+                                        }
+                                    </div>
+                                    <small class="text-muted">@rating.AverageRating.ToString("0.0") (@rating.ReviewCount)</small>
+                                </div>
+                                <p class="price mb-3">@product.Price.ToString("C")</p>
+                                <div class="d-flex gap-2">
+                                    <a class="btn btn-outline-dark flex-grow-1" asp-action="Details" asp-route-productCode="@product.ProductCode">View</a>
+                                    <form asp-action="AddToCart" method="post" class="flex-grow-1">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="productId" value="@product.ProductId" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-dark w-100">Add to Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            @if (Model.TotalPages > 1)
+            {
+                <nav class="mt-4">
+                    @{
+                        var baseUrl = Url.Action("Index", "Product") ?? "/Product";
+                        var baseQuery = string.IsNullOrWhiteSpace(Model.FilterQueryString)
+                            ? baseUrl
+                            : $"{baseUrl}{Model.FilterQueryString}";
+                        var separator = string.IsNullOrWhiteSpace(Model.FilterQueryString) ? "?" : "&";
+                    }
+                    <ul class="pagination">
+                        @for (var i = 1; i <= Model.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="@($"{baseQuery}{separator}page={i}")">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+    </div>
+</div>

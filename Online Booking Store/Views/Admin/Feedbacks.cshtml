@@ -1,0 +1,70 @@
+@model AdminFeedbacksPageViewModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Feedbacks";
+}
+
+<div class="admin-panel-card">
+    <div class="admin-card-header">
+        <div>
+            <h3 class="mb-1">Feedback & Queries</h3>
+            <p>Review customer messages and send replies from modals.</p>
+        </div>
+    </div>
+    <div class="table-shell">
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feedback in Model.Feedbacks)
+                {
+                    <tr>
+                        <td>@feedback.FullName</td>
+                        <td>@feedback.Email</td>
+                        <td>@feedback.Subject</td>
+                        <td>@feedback.SubmittedOn.ToString("dd MMM yyyy")</td>
+                        <td><span class="status-badge @(feedback.IsResolved ? "completed" : "pending")">@(feedback.IsResolved ? "Resolved" : "Open")</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#replyFeedback-@feedback.FeedbackId">View & Reply</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@foreach (var feedback in Model.Feedbacks)
+{
+    <div class="modal fade" id="replyFeedback-@feedback.FeedbackId" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@feedback.Subject</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>From:</strong> @feedback.FullName (@feedback.Email)</p>
+                    <p>@feedback.Message</p>
+                    <form asp-action="ReplyFeedback" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="FeedbackId" value="@feedback.FeedbackId" />
+                        <div class="mb-3">
+                            <label class="form-label">Reply</label>
+                            <textarea class="form-control" name="Reply" rows="4">@feedback.AdminReply</textarea>
+                        </div>
+                        <button class="btn btn-dark" type="submit">Save Reply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

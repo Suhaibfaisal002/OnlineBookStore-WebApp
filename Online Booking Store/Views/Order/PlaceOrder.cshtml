@@ -1,0 +1,125 @@
+@model OrderViewModel
+@{
+    ViewData["Title"] = "Place Order";
+}
+
+<form asp-action="ConfirmOrder" method="post" class="row g-4">
+    <div class="col-lg-7">
+        <div class="content-card">
+            <h1 class="mb-3">Checkout</h1>
+            <p class="text-muted">Delivery is FREE for distance less than 3 KMs. For more than 3 KMs, charges apply based on delivery type selected.</p>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="DeliveryAddress" class="form-label"></label>
+                <textarea asp-for="DeliveryAddress" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Distance" class="form-label"></label>
+                    <input asp-for="Distance" class="form-control" id="distanceInput" />
+                    <span asp-validation-for="Distance" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="DeliveryType" class="form-label"></label>
+                    <select asp-for="DeliveryType" asp-items="Model.DeliveryTypes" class="form-select" id="deliveryTypeInput"></select>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+            <h4>Payment Type</h4>
+            <div class="form-check mt-3">
+                <input class="form-check-input" asp-for="PaymentType" type="radio" value="BeforeDelivery" id="paymentBefore" />
+                <label class="form-check-label" for="paymentBefore">
+                    Payment Before Delivery
+                    <small class="d-block text-muted">Please send Demand Draft of total amount. Order will be dispatched only after payment receipt.</small>
+                </label>
+            </div>
+            <div class="form-check mt-3">
+                <input class="form-check-input" asp-for="PaymentType" type="radio" value="AfterDelivery" id="paymentAfter" />
+                <label class="form-check-label" for="paymentAfter">
+                    Payment After Delivery
+                    <small class="d-block text-muted">Pay by Cash or Cheque at time of delivery.</small>
+                </label>
+            </div>
+            <div class="row mt-2" id="afterDeliveryModes">
+                <div class="col-md-6">
+                    <select asp-for="PaymentMode" class="form-select">
+                        <option value="Cash">Cash</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-check mt-3">
+                <input class="form-check-input" asp-for="PaymentType" type="radio" value="OnlinePayment" id="paymentOnline" />
+                <label class="form-check-label" for="paymentOnline">
+                    Online Payment
+                    <small class="d-block text-muted">Pay via Credit Card. Order dispatches only after bank confirms payment.</small>
+                </label>
+            </div>
+
+            <div class="mt-4">
+                <label asp-for="Remarks" class="form-label"></label>
+                <textarea asp-for="Remarks" class="form-control" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn-dark btn-lg mt-4" type="submit">Place Order</button>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="content-card">
+            <h4>Order Summary</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.ProductName <span class="text-muted">x @item.Quantity</span></td>
+                                <td class="text-end">@item.SubTotal.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between"><span>Total Quantity</span><strong>@Model.TotalQuantity</strong></div>
+            <div class="d-flex justify-content-between mt-2"><span>Products Total</span><strong>@Model.TotalProductAmount.ToString("C")</strong></div>
+            <div class="d-flex justify-content-between mt-2"><span>Discount</span><strong id="discountAmount">@Model.DiscountAmount.ToString("C")</strong></div>
+            <div class="d-flex justify-content-between mt-2"><span>Delivery Charge</span><strong id="deliveryCharge">@Model.DeliveryCharge.ToString("C")</strong></div>
+            <hr />
+            <div class="d-flex justify-content-between"><span>Grand Total</span><strong id="grandTotal">@Model.GrandTotal.ToString("C")</strong></div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (() => {
+            const distanceInput = document.getElementById("distanceInput");
+            const deliveryTypeInput = document.getElementById("deliveryTypeInput");
+            const deliveryCharge = document.getElementById("deliveryCharge");
+            const grandTotal = document.getElementById("grandTotal");
+            const productTotal = @Model.TotalProductAmount;
+            const discount = @Model.DiscountAmount;
+
+            function updateTotals() {
+                const distance = parseFloat(distanceInput.value || "0");
+                const deliveryType = deliveryTypeInput.value;
+                let charge = 0;
+
+                if (distance > 3) {
+                    charge = deliveryType === "Express" ? 100 : 50;
+                }
+
+                deliveryCharge.textContent = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(charge);
+                grandTotal.textContent = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(productTotal - discount + charge);
+            }
+
+            distanceInput.addEventListener("input", updateTotals);
+            deliveryTypeInput.addEventListener("change", updateTotals);
+            updateTotals();
+        })();
+    </script>
+}

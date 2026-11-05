@@ -1,0 +1,759 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\data\\startupseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\data\\startupseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\subcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\subcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\migrations\\20260319005058_fixrelationsfinal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\migrations\\20260319005058_fixrelationsfinal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\infrastructure\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\infrastructure\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\viewmodels\\adminviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\viewmodels\\adminviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\customers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\customers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\products.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\products.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\wwwroot\\images\\brand\\store-logo.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\wwwroot\\images\\brand\\store-logo.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\contactmessages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\contactmessages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\_contactmessagedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\_contactmessagedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\appcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\appcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\admin\\feedbacks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\admin\\feedbacks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\data\\shradhabookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\data\\shradhabookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\contactmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\contactmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\manufacturer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\manufacturer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\faq\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\faq\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\online booking store.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\online booking store.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|c:\\users\\mb.com\\desktop\\onlinebookstore\\online booking store\\migrations\\20260319081319_addcontactmessagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B97B9F-AA02-9B4E-B1A3-7BE383E6DCF9}|Online Booking Store\\Online Booking Store.csproj|solutionrelative:online booking store\\migrations\\20260319081319_addcontactmessagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StartupSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Data\\StartupSeeder.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Data\\StartupSeeder.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Data\\StartupSeeder.cs",
+              "RelativeToolTip": "Online Booking Store\\Data\\StartupSeeder.cs",
+              "ViewState": "AgIAALkAAAAAyszMzMwIwL4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:57:09.872Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Category.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Category.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAmwA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:56:28.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubCategory.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\SubCategory.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\SubCategory.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\SubCategory.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\SubCategory.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:56:14.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\ViewModels\\AdminViewModels.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\ViewModels\\AdminViewModels.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\ViewModels\\AdminViewModels.cs",
+              "RelativeToolTip": "Online Booking Store\\ViewModels\\AdminViewModels.cs",
+              "ViewState": "AgIAAD0AAAAAzMzMzMwSwI0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T08:15:32.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAKEDAAAAAAAAAAAywKsDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T13:39:53.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABoAAAAAiJmZmZkOwEUAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:35:31.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\CartItem.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAMzMzMzMbwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:52:13.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Product.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Product.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:55:57.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20260319005058_FixRelationsFinal.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Migrations\\20260319005058_FixRelationsFinal.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Migrations\\20260319005058_FixRelationsFinal.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Migrations\\20260319005058_FixRelationsFinal.cs",
+              "RelativeToolTip": "Online Booking Store\\Migrations\\20260319005058_FixRelationsFinal.cs",
+              "ViewState": "AgIAAGIAAAAAZ2ZmZmYrwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T00:50:59.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppConstants.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Infrastructure\\AppConstants.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Infrastructure\\AppConstants.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Infrastructure\\AppConstants.cs",
+              "RelativeToolTip": "Online Booking Store\\Infrastructure\\AppConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:50:32.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Customers.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Customers.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\Customers.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Customers.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\Customers.cshtml",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwGYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:32:37.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Profile.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T22:15:05.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Online Booking Store\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Online Booking Store\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHUEAAAAAAAAAAAuwIoEAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-19T09:11:36.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\User.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\User.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:54:47.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:01:28.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Products.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Products.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\Products.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Products.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\Products.cshtml",
+              "ViewState": "AgIAADUBAAAAAAAAAAAuwEgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:31:02.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAABEAAAAANjMzM7MSwB4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:23:40.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Contact\\Index.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Contact\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Contact\\Index.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Contact\\Index.cshtml",
+              "ViewState": "AgIAACUBAACAMzMzMzMkwDQBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T01:46:16.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\ContactController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAUwDIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:34:15.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "store-logo.png - PNG [727x717, 32 bit, PNG]",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\wwwroot\\Images\\Brand\\store-logo.png",
+              "RelativeDocumentMoniker": "Online Booking Store\\wwwroot\\Images\\Brand\\store-logo.png",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\wwwroot\\Images\\Brand\\store-logo.png - PNG [727x717, 32 bit, PNG]",
+              "RelativeToolTip": "Online Booking Store\\wwwroot\\Images\\Brand\\store-logo.png - PNG [727x717, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-03-19T11:43:50.791Z",
+              "EditorCaption": " - PNG [727x717, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABMAAAAAn5mZmVkmwB4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T01:23:58.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ContactMessages.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\ContactMessages.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\ContactMessages.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\ContactMessages.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\ContactMessages.cshtml",
+              "ViewState": "AgIAAFYAAACAMjMzM3MvwGkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:14:50.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OrderDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\OrderDetail.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\OrderDetail.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\OrderDetail.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\OrderDetail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:48:05.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_ContactMessageDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\_ContactMessageDetails.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\_ContactMessageDetails.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\_ContactMessageDetails.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\_ContactMessageDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:22:30.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T08:26:20.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AppController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\AppController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\AppController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\AppController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\AppController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T01:53:48.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Feedbacks.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Feedbacks.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Admin\\Feedbacks.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Admin\\Feedbacks.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Admin\\Feedbacks.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAUwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T08:15:04.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "20260319081319_AddContactMessagesTable.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Migrations\\20260319081319_AddContactMessagesTable.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Migrations\\20260319081319_AddContactMessagesTable.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Migrations\\20260319081319_AddContactMessagesTable.cs",
+              "RelativeToolTip": "Online Booking Store\\Migrations\\20260319081319_AddContactMessagesTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T08:13:20.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Faq.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Faq.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Faq.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Faq.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Faq.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:52:35.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ShradhaBookStoreContext.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Data\\ShradhaBookStoreContext.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Data\\ShradhaBookStoreContext.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Data\\ShradhaBookStoreContext.cs",
+              "RelativeToolTip": "Online Booking Store\\Data\\ShradhaBookStoreContext.cs",
+              "ViewState": "AgIAAA4AAAAAgJmZmZnpvxQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T00:46:24.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ContactMessage.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\ContactMessage.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\ContactMessage.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\ContactMessage.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\ContactMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T08:04:08.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Feedback.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Feedback.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Feedback.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Feedback.cs",
+              "ViewState": "AgIAAA0AAADg/////38ywBEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:53:04.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Order.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Order.cs",
+              "ViewState": "AgIAABAAAACAmZmZmXkwwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:53:27.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\OrderItem.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAcAAAAgMzMzM7M1wA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:53:38.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Payment.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Payment.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Payment.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Payment.cs",
+              "ViewState": "AgIAAAgAAABAMzMzM7MdwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:53:47.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T01:48:50.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ProductReview.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\ProductReview.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\ProductReview.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\ProductReview.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\ProductReview.cs",
+              "ViewState": "AgIAAA4AAACAZmZmZiY2wBAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T07:54:23.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Manufacturer.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Manufacturer.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Models\\Manufacturer.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Models\\Manufacturer.cs",
+              "RelativeToolTip": "Online Booking Store\\Models\\Manufacturer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T13:19:08.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABEAAAAAZmZmZmYmwBgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T01:30:56.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\FAQ\\Index.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\FAQ\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\FAQ\\Index.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\FAQ\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-19T01:46:41.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Online Booking Store\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAADEAAAAAKjMzMzMSwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T13:31:22.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Online Booking Store\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Online Booking Store\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAHIAAAAAFAAAAMAtwMoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:24:53.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\appsettings.json",
+              "RelativeDocumentMoniker": "Online Booking Store\\appsettings.json",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\appsettings.json",
+              "RelativeToolTip": "Online Booking Store\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T14:51:47.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\ViewModels\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\ViewModels\\ProductViewModel.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\ViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "Online Booking Store\\ViewModels\\ProductViewModel.cs",
+              "ViewState": "AgIAABUAAADAZ2ZmZgYwwBkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T00:28:17.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Program.cs",
+              "RelativeDocumentMoniker": "Online Booking Store\\Program.cs",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Program.cs",
+              "RelativeToolTip": "Online Booking Store\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:54:05.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Online Booking Store.csproj",
+              "DocumentMoniker": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Online Booking Store.csproj",
+              "RelativeDocumentMoniker": "Online Booking Store\\Online Booking Store.csproj",
+              "ToolTip": "C:\\Users\\MB.Com\\Desktop\\OnlineBookStore\\Online Booking Store\\Online Booking Store.csproj",
+              "RelativeToolTip": "Online Booking Store\\Online Booking Store.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-18T12:53:51.396Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

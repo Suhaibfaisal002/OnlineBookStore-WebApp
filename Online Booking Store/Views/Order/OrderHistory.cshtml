@@ -1,0 +1,55 @@
+@model List<Order>
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<div class="content-card">
+    <div class="section-heading">
+        <div>
+            <h1 class="section-title mb-1">Order History</h1>
+            <p>All orders placed from your account.</p>
+        </div>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="empty-state">
+            <h4>No orders yet</h4>
+            <p>Your placed orders will appear here.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>@order.OrderNumber</td>
+                            <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                            <td><span class="status-badge @order.OrderStatus.ToLowerInvariant()">@order.OrderStatus</span></td>
+                            <td>@order.GrandTotal.ToString("C")</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-dark" asp-action="TrackOrder">Track</a>
+                                @if (order.OrderStatus is "Pending" or "Processing")
+                                {
+                                    <a class="btn btn-sm btn-dark" asp-action="UpdateOrder" asp-route-orderNumber="@order.OrderNumber">Update</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

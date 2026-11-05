@@ -1,0 +1,39 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-5">
+        <div class="content-card">
+            <span class="badge text-bg-dark mb-3">Customer & Admin Login</span>
+            <h1 class="mb-3">Sign in to continue</h1>
+            <p class="text-muted">You need to login to place orders and manage your account.</p>
+
+            <form asp-action="Login" method="post" class="row g-3">
+                <input asp-for="ReturnUrl" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-12">
+                    <label asp-for="EmailOrUsername" class="form-label"></label>
+                    <input asp-for="EmailOrUsername" class="form-control" />
+                    <span asp-validation-for="EmailOrUsername" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-12 d-grid">
+                    <button class="btn btn-dark btn-lg" type="submit">Login</button>
+                </div>
+                <div class="col-12 text-center text-muted">
+                    New customer? <a asp-action="Register">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
